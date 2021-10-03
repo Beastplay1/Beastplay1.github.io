@@ -19,6 +19,7 @@
 	const burgerItem = document.querySelector('.burger');
 	const menu = document.querySelector('.header-nav');
 	const menuCloseItem = document.querySelector('.header-nav-close');
+	const menuLinks = document.querySelectorAll('.header-link');
 	burgerItem.addEventListener("click", () => {
 		menu.classList.add('header-nav_active');
 	});
@@ -26,6 +27,14 @@
 		menu.classList.remove('header-nav_active');
 
 	});
+
+	if (window.innerWidth < 768) {
+		for (var i = 0; i < menuLinks.length; i++) {
+			menuLinks[i].addEventListener('click', () => {
+				menu.classList.remove('header-nav_active');
+			}); 
+		}
+	}
 }());
 
 // Scroll to anchors
